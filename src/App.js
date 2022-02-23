@@ -1,17 +1,18 @@
 import React from "react";
 import "./App.css";
 import Counter from "./components/Counter";
-import { selectCount, selectUser, selectUserId } from './selectors/selector';
+import { selectCounter, selectUser, selectUserId } from './selectors/selector';
 import { useSelector } from 'react-redux';
+import UserList from './components/UserList';
 
 function App() {
   const count = useSelector((state) => state.count);
-  const selectorCount = useSelector(selectCount);
+  const selectorCount = useSelector(selectCounter);
+  console.log('selectorCount', selectorCount);
+  
+ 
   const userIm = useSelector(selectUser);
-  console.log(userIm);
   const user = userIm.toJS();
-  console.log(user);
-
   const userId = useSelector(selectUserId);
 
   const voters = [
@@ -23,13 +24,14 @@ function App() {
   return (
     <div className="App">
       <h1>Redux made easy</h1>
-      <h1>User: '{user.id}' - {userId}</h1>
+      <h1>User Id: selectUser: '{user.id}' - selectUserId: {userId}</h1>
       <h2>Total Votes: {count} --- Total Selector Votes: {selectorCount}</h2>
       {voters.map((voter) => (
         <Counter name={voter} key={voter} />
       ))}
+      <UserList/>
     </div>
   );
-}
+};
 
 export default App;

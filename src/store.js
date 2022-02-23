@@ -1,11 +1,22 @@
-import { createStore, compose } from "redux";
-import counterReducer from './reducers/reducer';
+import { createStore, compose, applyMiddleware } from "redux";
+import reducer from './reducers';
+import createSagaMiddleware from "redux-saga";
+import { watcherSaga } from "./sagas/rootSaga";
+
+const sagaMiddleware = createSagaMiddleware();
+
+const middleware = [sagaMiddleware];
 
 const store = createStore(
-  counterReducer,
+  reducer,
+  {},
   compose(
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+    applyMiddleware(...middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : args => args,
+  ),
 );
+
+// run watcher saga
+sagaMiddleware.run(watcherSaga);
 
 export default store;
