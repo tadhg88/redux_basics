@@ -24,8 +24,8 @@ function App() {
   return (
     <div className="App">
       <h1>Redux made easy</h1>
-      <h1>User Id: selectUser: '{user.id}' - selectUserId: {userId}</h1>
-      <h2>Total Votes: {count} --- Total Selector Votes: {selectorCount}</h2>
+      <h1>selectUser - Name: '{user.name}' - Id: '{user.id}' - selectUserId: {userId}</h1>
+      <h2>Total Votes: {count} --- Total Votes (Redux): {selectorCount}</h2>
       {voters.map((voter) => (
         <Counter name={voter} key={voter} />
       ))}

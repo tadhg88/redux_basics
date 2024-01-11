@@ -20,7 +20,7 @@ const Counter = (props) => {
   return (
     <div style={{ backgroundColor: "grey", margin: "10px" }}>
       <h2> {name} </h2>
-      <h3> {`Votes: ${votes}`} </h3>
+      <h3> {`Votes (local state): ${votes}`} </h3>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <button onClick={handleIncrement}> Increment </button>
         <button onClick={handleDecrement}> Decrement </button>

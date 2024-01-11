@@ -8,7 +8,7 @@ export function* handleGetUser(action) {
 
         const { data } = response;
 
-        console.log("data", data);
+        console.log("data received in response: ", data);
         yield put (setUser(data));
     }
     catch(error) {

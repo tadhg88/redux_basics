@@ -9,9 +9,9 @@ const UserList = (props) => {
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
-  const users = useSelector((state) => state.users);
-  console.log("userlist", users);
-  console.log("userlist1", users.users);
+  
+  const users = useSelector((state) => state.usersSlice);
+  console.log("userlist", users.users);
 
     return (<div>
     {users.users && users.users.map((user) => (
