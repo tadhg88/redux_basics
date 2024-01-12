@@ -13,10 +13,10 @@ const UserList = (props) => {
   const users = useSelector((state) => state.usersSlice);
   console.log("userlist", users.users);
 
-    return (<div>
+  return (<ol>
     {users.users && users.users.map((user) => (
-        <h3>name: {user.name}</h3>
-    ))}</div>
+        <li key={user.id}>name: {user.name}</li>
+    ))}</ol>
     );
 }
 
