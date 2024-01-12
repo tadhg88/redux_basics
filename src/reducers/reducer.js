@@ -1,14 +1,6 @@
 import { INCREMENT, DECREMENT } from "../actions/types";
 import { fromJS } from "immutable";
 
-export const increment = () => ({
-  type: INCREMENT
-});
-
-export const decrement = () => ({
-  type: DECREMENT
-});
-
 const initialState = {
   count: 0,
   user: fromJS({
