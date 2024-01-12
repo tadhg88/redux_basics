@@ -1,4 +1,4 @@
-import { GET_USER, SET_USER } from "../actions/types";
+import { GET_USER, SET_USER } from "../actions/actionTypes";
 
 export const getUser = () => ({
   type: GET_USER

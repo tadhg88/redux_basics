@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from "../actions/types";
+import { INCREMENT, DECREMENT, INCREMENT_BY } from "../actions/actionTypes";
 import { fromJS } from "immutable";
 
 const initialState = {
@@ -15,6 +15,8 @@ export default (state = initialState, action) => {
       return { ...state, count: state.count + 1 };
     case DECREMENT:
       return { ...state, count: state.count - 1 };
+    case INCREMENT_BY:
+      return {...state, count: state.count + action.payload};
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { increment, decrement } from "../actions/actions";
+import { increment, decrement } from "../actions/actionCreators";
 
 const Counter = (props) => {
   const { name } = props;
@@ -21,7 +21,7 @@ const Counter = (props) => {
     <div style={{ backgroundColor: "grey", margin: "10px" }}>
       <h2> {name} </h2>
       <h3> {`Votes (local state): ${votes}`} </h3>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={{ display: "flex", justifyContent: "left" }}>
         <button onClick={handleIncrement}> Increment </button>
         <button onClick={handleDecrement}> Decrement </button>
       </div>
