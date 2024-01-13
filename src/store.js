@@ -1,7 +1,7 @@
 import { createStore, compose, applyMiddleware } from "redux";
 import reducer from './reducers';
 import createSagaMiddleware from "redux-saga";
-import { watcherSaga } from "./sagas/rootSaga";
+import { watcherSaga, watcherSagaTodo } from "./sagas/rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -18,5 +18,6 @@ const store = createStore(
 
 // run watcher saga
 sagaMiddleware.run(watcherSaga);
+sagaMiddleware.run(watcherSagaTodo);
 
 export default store;
