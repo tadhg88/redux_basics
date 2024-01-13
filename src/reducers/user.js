@@ -1,21 +1,13 @@
-import { GET_USER, SET_USER } from "../actions/actionTypes";
-
-export const getUser = () => ({
-  type: GET_USER
-});
-
-export const setUser = (users) => ({
-  type: SET_USER,
-  users,
-});
+import { SET_USER } from "../actions/actionTypes";
 
 const initialState = {
-  users: undefined
+  users: undefined,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_USER:
+      console.log('reducer', action);
         const { users } = action;
       return { ...state, users };
     default:

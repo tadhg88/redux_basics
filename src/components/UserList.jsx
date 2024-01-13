@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import{ getUser } from './../reducers/user';
+import { getUser } from "../actions/actionCreators";
 
 
 const UserList = (props) => {

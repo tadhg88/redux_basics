@@ -1,10 +1,10 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Counter from "./components/Counter";
 import { selectCounter, selectUser, selectUserId, selectUserSelector } from './selectors/selector';
 import { useDispatch, useSelector } from 'react-redux';
 import UserList from './components/UserList';
-import { incrementBy } from "./actions/actionCreators";
+import { getUserTodo, incrementBy, setUserTodo } from "./actions/actionCreators";
 
 function App() {
   const count = useSelector((state) => state.counterSlice.count);
@@ -17,7 +17,7 @@ function App() {
   const userId = useSelector(selectUserId);
 
   const userSelectorUser = useSelector(selectUserSelector).toJS();
-  console.log('userSelectorUser: ', userSelectorUser);
+  //console.log('userSelectorUser: ', userSelectorUser);
  
 
   const voters = [
@@ -42,6 +42,11 @@ function App() {
     console.log('actionIncrementBy', actionIncrementBy);
     dispatch(actionIncrementBy);
   }
+
+  useEffect(() => {
+    dispatch(getUserTodo());
+    //dispatch(setUserTodo());
+  }, []);
 
   return (
     <div className="App">
